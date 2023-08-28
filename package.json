@@ -1,0 +1,16 @@
+{
+  "name": "lc-playwright",
+  "version": "1.0.0",
+  "description": "Playwright e2e UI tests for localcoding.us",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "report": "playwright show-report"
+  },
+  "keywords": [],
+  "author": "Dusty Dump",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "1.37.1"
+  }
+}
