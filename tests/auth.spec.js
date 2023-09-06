@@ -7,12 +7,13 @@ test.describe('Authentication & Authorisation', () => {
     test.beforeEach(async ({page}) => {
         await page.goto('https://coding.pasv.us/user/login')
     })
+    test.afterEach(async ({ page }, testInfo) => {
+        console.log(`Finished ${testInfo.title} with status ${testInfo.status}`)
+    });
     test('Authorisation with valid credentials', async ({ page, context }) => {
 
         await page.locator('#normal_login_email').fill('dumpdusty@gmail.com')
-
         await page.locator('#normal_login_password').fill('W3ss3rv1@@')
-
         await page.locator('[type="submit"]').click()
 
         await expect (page.locator('.ant-avatar-square')).toBeVisible()
@@ -22,9 +23,7 @@ test.describe('Authentication & Authorisation', () => {
     test('Authorisation with invalid credentials', async ({ page }) => {
 
         await page.locator('#normal_login_email').fill('invalid@gmail.com')
-
         await page.locator('#normal_login_password').fill('invalid')
-
         await page.locator('[type="submit"]').click()
 
         const toast = page.locator('.ant-notification-notice-error')
