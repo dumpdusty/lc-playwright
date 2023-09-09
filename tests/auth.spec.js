@@ -5,15 +5,15 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Authentication & Authorisation', () => {
     test.beforeEach(async ({page}) => {
-        await page.goto('https://coding.pasv.us/user/login')
+        await page.goto('/user/login')
     })
     test.afterEach(async ({ page }, testInfo) => {
         console.log(`Finished ${testInfo.title} with status ${testInfo.status}`)
     });
     test('Authorisation with valid credentials', async ({ page, context }) => {
 
-        await page.locator('#normal_login_email').fill('dumpdusty@gmail.com')
-        await page.locator('#normal_login_password').fill('W3ss3rv1@@')
+        await page.locator('#normal_login_email').fill(process.env.EMAIL)
+        await page.locator('#normal_login_password').fill(process.env.PASSWORD)
         await page.locator('[type="submit"]').click()
 
         await expect (page.locator('.ant-avatar-square')).toBeVisible()
