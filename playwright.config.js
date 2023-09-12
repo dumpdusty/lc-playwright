@@ -1,20 +1,20 @@
 // @ts-check
-const { defineConfig, devices } = require("@playwright/test");
+const { defineConfig, devices } = require('@playwright/test')
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-require("dotenv").config();
+require('dotenv').config()
 
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
   /* specify tests directory */
-  testDir: "./tests",
+  testDir: './tests',
   timeout: 40000,
-  testIgnore: "**/example**",
+  testIgnore: '**/example**',
   /* Run tests (inside the specs) in files in parallel */
   // fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -25,22 +25,22 @@ module.exports = defineConfig({
   workers: 1,
   //workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: process.env.BASE_URL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
-    testIdAttribute: "data-qa",
+    trace: 'on-first-retry',
+    testIdAttribute: 'data-qa',
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
     },
 
     // {
@@ -80,4 +80,4 @@ module.exports = defineConfig({
   //   url: 'http://127.0.0.1:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
-});
+})
