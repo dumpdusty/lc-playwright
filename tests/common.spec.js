@@ -1,18 +1,6 @@
 import { test, expect } from '../common/test'
-// import { signIn } from '../common/signin'
 
 test.describe('Navigation', () => {
-  // let page
-  // test.beforeAll(async ({ browser }) => {
-  //   page = await browser.newPage()
-  //   // await loginPage.open()
-  //   // await loginPage.login(process.env.EMAIL, process.env.PASSWORD)
-  //   await signIn(page, process.env.EMAIL, process.env.PASSWORD)
-  // })
-  //
-  // test.afterAll(async () => {
-  //   await page.close()
-  // })
 
   test.beforeEach(async({loginPage}) => {
     await loginPage.open()
