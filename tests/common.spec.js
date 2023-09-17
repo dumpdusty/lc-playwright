@@ -20,28 +20,28 @@ test.describe('Navigation', () => {
   })
 
 
-  test('verify Courses link', async ({page}) => {
-    await page.getByTestId('topmenu-Курсы').click()
+  test('verify Courses link', async ({page, loginPage}) => {
+    await loginPage.navbar.courses.click()
     await expect(page).toHaveURL('/course')
     await expect(
       page.getByText('Курсы программирования и тестирования')
     ).toBeVisible()
   })
 
-  test('verify Tasks link', async ({page}) => {
-    await page.getByTestId('topmenu-Задачи').click()
+  test('verify Tasks link', async ({page, loginPage}) => {
+    await loginPage.navbar.tasks.click()
     await expect(page).toHaveURL('/challenge?limit=30&page=1')
     await expect(page.getByText('Кодинг задачи')).toBeVisible()
   })
 
-  test('verify Interview link', async ({page}) => {
-    await page.getByTestId('topmenu-Интервью').click()
+  test('verify Interview link', async ({page, loginPage}) => {
+    await loginPage.navbar.interview.click()
     await expect(page).toHaveURL('/flash')
     await expect(page.getByText('Interview practice cards')).toBeVisible()
   })
 
-  test('verify Diary link', async ({page}) => {
-    await page.getByTestId('topmenu-Дневник').click()
+  test('verify Diary link', async ({page, loginPage}) => {
+    await loginPage.navbar.diary.click()
     await expect(page).toHaveURL('/diary?page=1')
     await expect(page.getByText('Daily reports')).toBeVisible()
   })
