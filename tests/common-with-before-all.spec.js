@@ -7,10 +7,11 @@ test.describe('Navigation', () => {
     page = await browser.newPage()
     await signIn(page, process.env.EMAIL, process.env.PASSWORD)
   })
-  //
-  test.afterAll(async () => {
-    await page.close()
-  })
+
+  // not sure if below hook is necessary (?!)
+  // test.afterAll(async () => {
+  //   await page.close()
+  // })
 
   test('verify Courses link', async () => {
     await page.getByTestId('topmenu-Курсы').click()
