@@ -10,7 +10,7 @@ test.describe('Navigation', () => {
   })
 
   // all navbar links in one test
-  test.only('all-in-one', async ({page, loginPage}) => {
+  test.only('navbar all-in-one', async ({page, loginPage}) => {
     await loginPage.navbar.courses.click()
     await expect(page).toHaveURL('/course')
     await expect(
